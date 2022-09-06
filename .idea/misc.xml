@@ -8,10 +8,13 @@
         <entry key="..\:/Users/user/Downloads/Image_To_Text_App/app/src/main/res/layout/activity_main.xml" value="0.4421875" />
         <entry key="..\:/android/Image_To_Text_App/app/src/main/res/layout/activity_camera.xml" value="0.23854166666666668" />
         <entry key="..\:/android/Image_To_Text_App/app/src/main/res/layout/activity_main.xml" value="0.23854166666666668" />
+        <entry key="app/src/main/res/layout/activity_camera.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_kiosk_detect.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19449768066406253" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

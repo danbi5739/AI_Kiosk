@@ -4,16 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/camera_button"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:id="@+id/camera_button"
-        android:textAllCaps="false"
         android:text="Image To Text"
-        />
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/detecting_button"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Kiosk Detecting"
+        android:textAllCaps="false"/>
 
 
 </LinearLayout>
