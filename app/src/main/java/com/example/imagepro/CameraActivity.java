@@ -113,11 +113,11 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         take_picture_button=findViewById(R.id.take_picture_button);
         take_picture_button.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction()==MotionEvent.ACTION_DOWN) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction()==MotionEvent.ACTION_DOWN) {
                     return true;
                 }
-                if (event.getAction()==MotionEvent.ACTION_UP) {
+                if (motionEvent.getAction()==MotionEvent.ACTION_UP) {
                     if (camera_or_recognizeText=="camera") {
                         take_picture_button.setColorFilter(Color.DKGRAY);
                         Mat a=mRgba.t();
@@ -146,12 +146,12 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         translate_button=findViewById(R.id.translate_button);
         translate_button.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction()==MotionEvent.ACTION_DOWN) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction()==MotionEvent.ACTION_DOWN) {
                     translate_button.setColorFilter(Color.DKGRAY);
                     return true;
                 }
-                if (event.getAction()==MotionEvent.ACTION_UP) {
+                if (motionEvent.getAction()==MotionEvent.ACTION_UP) {
                     translate_button.setColorFilter(Color.WHITE);
                     if (camera_or_recognizeText=="recognizeText") {
                         textview.setVisibility(View.VISIBLE);
@@ -185,12 +185,12 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         show_image_button=findViewById(R.id.show_image_button);
         show_image_button.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction()==MotionEvent.ACTION_DOWN) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction()==MotionEvent.ACTION_DOWN) {
                     show_image_button.setColorFilter(Color.DKGRAY);
                     return true;
                 }
-                if (event.getAction()==MotionEvent.ACTION_UP) {
+                if (motionEvent.getAction()==MotionEvent.ACTION_UP) {
                     show_image_button.setColorFilter(Color.WHITE);
                     if (camera_or_recognizeText=="recognizeText") {
                         textview.setVisibility(View.GONE);

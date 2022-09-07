@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button camera_button;
 
+    private Button storage_ImageP_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +37,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        storage_ImageP_button=findViewById(R.id.storage_ImageP_button);
+        storage_ImageP_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,storageRecognitionActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            }
+        });
     }
 }

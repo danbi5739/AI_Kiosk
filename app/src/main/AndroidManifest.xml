@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.imagepro">
 
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature
@@ -25,8 +24,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ImagePro">
-        <activity android:name=".CameraActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".storageRecognitionActivity"
+            android:exported="false" />
+        <activity android:name=".CameraActivity" />
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
