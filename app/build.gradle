@@ -32,9 +32,23 @@ android {
             }
         }
     }
+    // for adding tensorflow to app
+    aaptOptions{
+        noCompress "tflite"
+        noCompress "lite"
+    }
+    buildFeatures{
+        mlModelBinding true
+    }
 }
 
 dependencies {
+
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.2.0'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
+    implementation 'org.tensorflow:tensorflow-lite-task-vision:0.1.0'
+    implementation 'org.tensorflow:tensorflow-lite-task-text:0.1.0'
 
     implementation 'com.google.mlkit:text-recognition-korean:16.0.0-beta5'
     //implementation 'com.google.mlkit:text-recognition-devanagari:16.0.0-beta5'
