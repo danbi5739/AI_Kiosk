@@ -10,6 +10,8 @@ import android.widget.Button;
 
 import org.opencv.android.OpenCVLoader;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
     static {
         if(OpenCVLoader.initDebug()){
@@ -22,11 +24,14 @@ public class MainActivity extends AppCompatActivity {
 
     private Button camera_button;
     private Button detecting_button;
+    private objectDetectorClass objectDetectorClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         camera_button=findViewById(R.id.camera_button);
         camera_button.setOnClickListener(new View.OnClickListener() {

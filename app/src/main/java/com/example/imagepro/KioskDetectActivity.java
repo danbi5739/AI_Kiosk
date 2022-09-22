@@ -1,6 +1,7 @@
 package com.example.imagepro;
 
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -20,6 +21,10 @@ import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
+
+import java.io.IOException;
+
 
 public class KioskDetectActivity extends Activity implements CameraBridgeViewBase.CvCameraViewListener2 {
 
@@ -28,10 +33,10 @@ public class KioskDetectActivity extends Activity implements CameraBridgeViewBas
     private Mat mRgba;
     private Mat mGray;
     private CameraBridgeViewBase mOpenCvCameraView;
-
-    private String camera_or_recognizeText="camera";
+    private objectDetectorClass objectDetectorClass;
 
     private Bitmap bitmap=null;
+    public int junheon = 0;
 
     private BaseLoaderCallback mLoaderCallback =new BaseLoaderCallback(this) {
         @Override
@@ -74,6 +79,16 @@ public class KioskDetectActivity extends Activity implements CameraBridgeViewBas
         mOpenCvCameraView=(CameraBridgeViewBase) findViewById(R.id.frame_Surface);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
+
+        try{
+            // input size is 300 for this model
+            objectDetectorClass = new objectDetectorClass(getAssets(),"kiosk.tflite","labelmap.txt",640);
+            Log.d("MainActivity","Model is successfully loaded");
+
+        }catch (IOException e){
+            Log.d("MainActivity","Getting some error");
+            e.printStackTrace();
+        }
 
     }
 
@@ -118,9 +133,12 @@ public class KioskDetectActivity extends Activity implements CameraBridgeViewBas
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame){
         mRgba=inputFrame.rgba();
         mGray=inputFrame.gray();
+        // now call that function
+        Mat out=new Mat();
+        out=objectDetectorClass.recognizeImage(mRgba);
 
-        return mRgba;
-
+        return out;
     }
+
 
 }

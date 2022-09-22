@@ -41,6 +41,8 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 
+import java.io.IOException;
+
 public class CameraActivity extends Activity implements CameraBridgeViewBase.CvCameraViewListener2{
     private static final String TAG="MainActivity";
 
@@ -59,6 +61,8 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
     private String camera_or_recognizeText="camera";
 
     private Bitmap bitmap=null;
+
+    private objectDetectorClass objectDetectorClass;
 
     private BaseLoaderCallback mLoaderCallback =new BaseLoaderCallback(this) {
         @Override
@@ -102,6 +106,7 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
 
+        //*** OCR fuction ***
         textRecognizer= TextRecognition.getClient(new KoreanTextRecognizerOptions.Builder().build());
 
         textview=findViewById(R.id.textview);

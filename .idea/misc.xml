@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../layout/custom_preview.xml" value="0.1" />
         <entry key="..\:/Users/user/Downloads/Image_To_Text_App/app/src/main/res/drawable/camera_button_image.xml" value="0.3915" />
         <entry key="..\:/Users/user/Downloads/Image_To_Text_App/app/src/main/res/layout/activity_camera.xml" value="0.296195652173913" />
         <entry key="..\:/Users/user/Downloads/Image_To_Text_App/app/src/main/res/layout/activity_main.xml" value="0.4421875" />
