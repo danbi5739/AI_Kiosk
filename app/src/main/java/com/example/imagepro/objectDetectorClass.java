@@ -47,6 +47,12 @@ public class objectDetectorClass {
     private int width =0;
 
 
+    //1. tflite 모델로 interpreter 객체를 만드는 단계
+    //2. input data 의 format이 모델과 맞도록 resizing 하는 단계
+    //3. 추론을 진행하는 단계
+    //4. output tensor를 의미있게 해석하는 단계
+
+
     objectDetectorClass(AssetManager assetManager, String modelPath, String labelPath, int inputSize) throws IOException{
         INPUT_SIZE = inputSize;
         // use to define gpu or cpu // no. of threads
@@ -59,7 +65,6 @@ public class objectDetectorClass {
         labelList = loadLabelList(assetManager,labelPath);
 
         interpreter = new Interpreter(loadModelFile(assetManager,modelPath),options);
-
 
     }
 
@@ -126,12 +131,12 @@ public class objectDetectorClass {
         // instead we create treemap of three array (boxes,score,classes)
 
         //PyTorch: starting from runs/train/exp/weights/best.pt with output shape (1, 25200, 7) (13.7 MB)
-        float[][][]boxes =new float[1][10][4];
+        float[][][]boxes =new float[1][25200][7];
         // 10: top 10 object detected
         // 4: there coordinate in image
-        float[][] scores=new float[1][2];
+        float[][] scores=new float[1][25200];
         // stores scores of 10 object
-        float[][] classes=new float[1][2];
+        float[][] classes=new float[1][25200];
         // stores class of object
 
         // add it to object_map;
